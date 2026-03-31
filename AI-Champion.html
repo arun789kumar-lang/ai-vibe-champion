@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Vibe Champion Nomination</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 40px;
+    color: #38bdf8;
+}
+
+.subtitle {
+    opacity: 0.7;
+    margin-top: 8px;
+}
+
+/* Nav */
+.nav {
+    position: sticky;
+    top: 0;
+    background: #0f172a;
+    padding: 12px;
+    border-bottom: 1px solid #1e293b;
+    text-align: center;
+    z-index: 100;
+}
+
+.nav a {
+    margin: 0 10px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav a:hover {
+    color: #38bdf8;
+}
+
+/* Card */
+.card {
+    background: #1e293b;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #334155;
+}
+
+.card h2 {
+    color: #38bdf8;
+}
+
+/* Buttons */
+.controls {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.btn {
+    background: transparent;
+    border: 1px solid #38bdf8;
+    color: #38bdf8;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #38bdf8;
+    color: #0f172a;
+}
+
+/* Lists */
+ul {
+    margin-left: 20px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+</style>
+</head>
+
+<body>
+
+<div class="nav">
+    <a href="#problem">Problem</a>
+    <a href="#implementation">Implementation</a>
+    <a href="#ai">AI Usage</a>
+    <a href="#impact">Impact</a>
+</div>
+
+<div class="container">
+
+<div class="header">
+    <h1>AI Vibe Champion Nomination</h1>
+    <div class="subtitle">Playwright Automation & Excel Grid Validation</div>
+
+    <div class="controls">
+        <button class="btn" onclick="startSpeech()">Play Audio</button>
+        <button class="btn" onclick="stopSpeech()">Stop</button>
+    </div>
+</div>
+
+<div id="problem" class="card">
+<h2>Problem & Context</h2>
+<p>
+Existing coverage was split between Azure TFS manual tests and older-style automated checks. Grid validations were fragile (cell-by-cell checks, JSON assertions), and error-log verification was mostly manual. There was also a need to make large numbers of similar tests consistent and reusable without exploding maintenance cost.
+</p>
+</div>
+
+<div id="implementation" class="card">
+<h2>What was implemented using AI assistance</h2>
+
+<h3>1. Conversion of TFS test cases to Playwright</h3>
+<ul>
+<li>Multiple Azure TFS scenarios were translated into Playwright specs using fixtures, page objects, and helpers.</li>
+<li>AI helped draft initial specs and refactor reusable components.</li>
+</ul>
+
+<h3>2. Reusable Excel grid checkpoints for Query Data</h3>
+<ul>
+<li>Used DevExpressGridTestHelper.verifyGridCheckpoint for Excel-based validation.</li>
+<li>Created per-test Excel baselines.</li>
+<li>Handled:
+    <ul>
+        <li>New columns like Entity Name and Short Name</li>
+        <li>Number formatting differences (25400 vs 25,400)</li>
+        <li>Dynamic fields like Last Posted Date</li>
+    </ul>
+</li>
+</ul>
+
+<h3>3. Stronger DevExpress grid helpers</h3>
+<ul>
+<li>Added row count, header access, row extraction</li>
+<li>Full grid checkpoints</li>
+<li>Debug logging for mismatches</li>
+</ul>
+
+<h3>4. End-to-end Excel error log validation (6027207)</h3>
+<ul>
+<li>Automated error trigger and download</li>
+<li>Validated filename with GUID pattern</li>
+<li>Verified Excel content using ExcelJS</li>
+<li>Checked expected lines:
+    <ul>
+        <li>Column: Entity - E4 - Case=50...</li>
+        <li>Column: Entity - E4 - Case=50...</li>
+    </ul>
+</li>
+</ul>
+
+<h3>5. Clear Query Data checks</h3>
+<ul>
+<li>Verified titles and row counts</li>
+<li>Standardized outputs like "Row Count 3"</li>
+</ul>
+
+</div>
+
+<div id="ai" class="card">
+<h2>Responsible use of AI</h2>
+<ul>
+<li>Reviewed against business requirements</li>
+<li>Aligned with framework structure</li>
+<li>Validated in QA environment</li>
+<li>Handled real-world edge cases</li>
+</ul>
+</div>
+
+<div id="impact" class="card">
+<h2>Impact</h2>
+<ul>
+<li>Reduced manual validation effort</li>
+<li>Improved consistency across tests</li>
+<li>Increased confidence in validations</li>
+<li>Accelerated development with AI assistance</li>
+</ul>
+
+<p>
+These changes significantly strengthened the Playwright framework and enabled reliable automation for complex scenarios.
+</p>
+</div>
+
+</div>
+
+<script>
+let speech;
+
+function startSpeech() {
+    stopSpeech();
+
+    const text = `
+    This submission demonstrates how AI improved Playwright automation.
+    Key achievements include Excel-based validation, reusable helpers,
+    and automated error log verification.
+    These improvements reduced manual effort and increased reliability.
+    `;
+
+    speech = new SpeechSynthesisUtterance(text);
+    speech.rate = 0.85;
+
+    window.speechSynthesis.speak(speech);
+}
+
+function stopSpeech() {
+    window.speechSynthesis.cancel();
+}
+</script>
+
+</body>
+</html>
