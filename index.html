@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Vibe Champion Nomination</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1a0033, #4b0082);
+    color: #fff;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.header h1 {
+    font-size: 48px;
+    color: #00ffd5;
+}
+
+.header h2 {
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+.controls {
+    margin-top: 20px;
+}
+
+button {
+    background: #00ffd5;
+    border: none;
+    padding: 10px 18px;
+    margin: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.card {
+    background: rgba(255,255,255,0.08);
+    margin: 20px 0;
+    padding: 25px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    color: #00ffd5;
+    margin-bottom: 10px;
+}
+
+ul {
+    line-height: 1.8;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    opacity: 0.7;
+}
+
+/* Animation */
+.fade {
+    animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header fade">
+    <h1>AI VIBE CHAMPION</h1>
+    <h2>@ Evoke Technologies</h2>
+
+    <div class="controls">
+        <button onclick="startSpeech()">▶ Play</button>
+        <button onclick="pauseSpeech()">⏸ Pause</button>
+        <button onclick="stopSpeech()">⏹ Stop</button>
+    </div>
+</div>
+
+<div class="card fade">
+<h3>🚩 Problem & Context</h3>
+<p>
+Existing coverage was split between Azure TFS manual tests and older automation.
+Grid validations were fragile and error log checks were manual.
+Scaling consistent automation was becoming difficult.
+</p>
+</div>
+
+<div class="card fade">
+<h3>🤖 AI Implementation</h3>
+<ul>
+<li>Converted Azure TFS test cases into Playwright automation</li>
+<li>Introduced Excel-based grid validation</li>
+<li>Handled dynamic fields and formatting differences</li>
+<li>Built reusable DevExpress grid helpers</li>
+<li>Automated Excel error log validation end-to-end</li>
+</ul>
+</div>
+
+<div class="card fade">
+<h3>⚙️ Advanced Enhancements</h3>
+<ul>
+<li>Dynamic column handling (Entity Name, Short Name)</li>
+<li>Smart comparison for numeric formats</li>
+<li>Ignored dynamic fields like Last Posted Date</li>
+<li>Improved debugging with expected vs actual logs</li>
+</ul>
+</div>
+
+<div class="card fade">
+<h3>🛡 Responsible AI Usage</h3>
+<p>
+AI was used for drafting, refactoring, and design suggestions.
+All outputs were validated, reviewed, and aligned with real test scenarios.
+</p>
+</div>
+
+<div class="card fade">
+<h3>📈 Impact</h3>
+<ul>
+<li>Reduced manual validation effort significantly</li>
+<li>Improved reliability and consistency</li>
+<li>Enabled scalable automation for complex scenarios</li>
+<li>Increased confidence in real user-facing validations</li>
+</ul>
+</div>
+
+<div class="footer">
+<p>AI Vibe Champion Submission • Playwright Automation Excellence</p>
+</div>
+
+</div>
+
+<script>
+let speech;
+let isPaused = false;
+
+function startSpeech() {
+    if (isPaused) {
+        window.speechSynthesis.resume();
+        isPaused = false;
+        return;
+    }
+
+    stopSpeech();
+
+    const text = `
+    Hello Team.
+    This submission showcases how AI was used to modernize our Playwright automation framework.
+    We converted TFS test cases, introduced Excel-based validation,
+    and automated error log verification.
+    These improvements reduced manual effort, increased reliability,
+    and enabled scalable automation for complex scenarios.
+    Thank you for your consideration.
+    `;
+
+    speech = new SpeechSynthesisUtterance(text);
+    speech.rate = 0.9;
+    speech.pitch = 1;
+    speech.volume = 1;
+
+    window.speechSynthesis.speak(speech);
+}
+
+function pauseSpeech() {
+    window.speechSynthesis.pause();
+    isPaused = true;
+}
+
+function stopSpeech() {
+    window.speechSynthesis.cancel();
+    isPaused = false;
+}
+
+// Auto play
+window.onload = () => {
+    setTimeout(startSpeech, 1500);
+};
+</script>
+
+</body>
+</html>
