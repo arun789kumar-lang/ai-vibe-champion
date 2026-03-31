@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Vibe Champion</title>
+
+<link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Sections */
+.section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+}
+
+/* Typography */
+h1 {
+    font-size: 60px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 32px;
+    color: #aaa;
+    max-width: 800px;
+}
+
+p {
+    max-width: 900px;
+    font-size: 18px;
+    color: #ccc;
+    line-height: 1.7;
+}
+
+/* Gradient text */
+.gradient {
+    background: linear-gradient(90deg, #00f2ff, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Fade animation */
+.fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Button */
+.btn {
+    margin-top: 30px;
+    padding: 12px 24px;
+    border-radius: 999px;
+    border: 1px solid #555;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: white;
+    color: black;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="section fade">
+    <h1 class="gradient">AI Vibe Champion</h1>
+    <h2>Modernizing Playwright Automation with AI</h2>
+    <button class="btn" onclick="playVoice()">Hear the Story</button>
+</section>
+
+<!-- PROBLEM -->
+<section class="section fade">
+    <h1>Problem</h1>
+    <p>
+    Existing test coverage was fragmented between manual Azure TFS cases and outdated automation.
+    Grid validations were fragile, relying on cell-by-cell assertions.
+    Error logs required manual validation, increasing effort and inconsistency.
+    </p>
+</section>
+
+<!-- SOLUTION -->
+<section class="section fade">
+    <h1>AI-Powered Solution</h1>
+    <p>
+    AI enabled transformation of TFS cases into Playwright automation using reusable architecture.
+    Excel-based grid validation replaced hundreds of assertions with a single baseline.
+    Dynamic challenges like formatting, new columns, and date fields were handled intelligently.
+    </p>
+</section>
+
+<!-- DETAILS -->
+<section class="section fade">
+    <h1>Engineering Excellence</h1>
+    <p>
+    Built reusable DevExpress grid helpers, automated Excel error log validation,
+    and introduced clean Query Data validation methods.
+    AI assisted in design and refactoring, while all implementations were validated rigorously.
+    </p>
+</section>
+
+<!-- IMPACT -->
+<section class="section fade">
+    <h1>Impact</h1>
+    <p>
+    Reduced manual effort, improved reliability, and enabled scalable automation.
+    Increased confidence by validating real user artifacts like Excel logs and UI grids.
+    </p>
+</section>
+
+<!-- END -->
+<section class="section fade">
+    <h1 class="gradient">Built with AI. Validated by Engineering.</h1>
+</section>
+
+<script>
+// Fade animation on scroll
+const elements = document.querySelectorAll('.fade');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+});
+
+elements.forEach(el => observer.observe(el));
+
+// Voice narration
+function playVoice() {
+    const text = `
+    This project demonstrates how AI transformed Playwright automation.
+    By introducing Excel-based validation and reusable components,
+    we improved reliability, reduced manual effort,
+    and enabled scalable automation for complex systems.
+    `;
+
+    const speech = new SpeechSynthesisUtterance(text);
+    speech.rate = 0.9;
+
+    window.speechSynthesis.speak(speech);
+}
+</script>
+
+</body>
+</html>
